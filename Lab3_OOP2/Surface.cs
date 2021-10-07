@@ -28,11 +28,10 @@ namespace Psim.ModelComponents
 			}
 			else
 			{
-				p.SetDirection(direction.DX,direction.DY);
+				p.SetDirection(direction.DX,-direction.DY);
 			
 			}
-			// Only need to account for perfectly specular reflection
-			// TODO: Alter the phonon direction vector as though it just collided with a mirror
+			
 			return cell;
 		}
 	}

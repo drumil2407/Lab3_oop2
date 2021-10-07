@@ -25,8 +25,6 @@ namespace Psim.ModelComponents
 		top = 2,
 		bottom=3
 		
-
-		// TODO -> set up these enums
 	}
 
 	public class Cell : Rectangle
@@ -49,10 +47,7 @@ namespace Psim.ModelComponents
 		/// <param name="p">The phonon that will be added</param>
 		public void AddPhonon(Phonon p)
 		{
-
 			phonons.Add(p);
-			// TODO
-			//throw new NotImplementedException();
 		}
 
 		/// <summary>
@@ -62,9 +57,7 @@ namespace Psim.ModelComponents
 		/// <param name="p">The phonon that will be added</param>
 		public void AddIncPhonon(Phonon p)
 		{
-			phonons.Add(p);
-			// TODO
-		
+			incomingPhonons.Add(p);
 		}
 
 		/// <summary>
@@ -72,8 +65,15 @@ namespace Psim.ModelComponents
 		/// </summary>
 		public void MergeIncPhonons()
 		{
-			// TODO
+			//phonons.AddRange(incomingPhonons);
+			//incomingPhonons.Clear();
 			
+			foreach (var phonon in incomingPhonons)
+			{
+				phonons.Add(phonon);
+			
+			}
+			incomingPhonons.Clear();
 		}
 
 		/// <summary>
@@ -83,7 +83,7 @@ namespace Psim.ModelComponents
 		/// <returns>The surface at location loc</returns>
 		public ISurface GetSurface(SurfaceLocation loc)
 		{
-			// TODO
+			
 			throw new NotImplementedException();
 		}
 
@@ -102,7 +102,7 @@ namespace Psim.ModelComponents
 
 		public override string ToString()
 		{
-			return string.Format("{1,-7} {2,-7}", phonons.Count, incomingPhonons.Count);
+			return string.Format("{0,-7} {1,-7}", phonons.Count, incomingPhonons.Count);
 		}
 	}
 }
